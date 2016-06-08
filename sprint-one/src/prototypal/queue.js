@@ -17,6 +17,6 @@ queueMethods.dequeue = function() {
 
 };
 queueMethods.size = function() {
-
+  return this.tail - this.head;
 };
 
