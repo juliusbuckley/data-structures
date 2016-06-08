@@ -15,6 +15,7 @@ var queueMethods = {};
 
 queueMethods.enqueue = function(val) {
   this.storage[this.tail++] = val;
+
 };
 
 queueMethods.dequeue = function() {
@@ -22,6 +23,6 @@ queueMethods.dequeue = function() {
 };
 
 queueMethods.size = function() {
-
+  return this.tail - this.head;
 };
 
