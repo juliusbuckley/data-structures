@@ -19,7 +19,10 @@ queueMethods.enqueue = function(val) {
 };
 
 queueMethods.dequeue = function() {
-
+  var temp = this.storage[this.head];
+  delete this.storage[this.head];
+  this.size() && this.head++;
+  return temp;
 };
 
 queueMethods.size = function() {
