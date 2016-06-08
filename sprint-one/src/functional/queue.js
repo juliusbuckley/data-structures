@@ -13,7 +13,7 @@ var Queue = function() {
   someInstance.dequeue = function() {
     var temp = storage[0];
     delete storage[0];
-    index--;
+    index && index--;
     return temp;
   };
 
