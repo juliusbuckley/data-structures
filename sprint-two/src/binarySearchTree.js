@@ -3,13 +3,13 @@ var BinarySearchTree = function(value) {
   treeInstance.left = null;
   treeInstance.right = null;
   treeInstance.value = value;
-  _.extend(treeInstance, treeMethods);
+  _.extend(treeInstance, binaryTreeMethods);
   return treeInstance;
 };
 
-var treeMethods = {};
+var binaryTreeMethods = {};
 
-treeMethods.insert = function(val, currentNode) {
+binaryTreeMethods.insert = function(val, currentNode) {
   currentNode = currentNode || this;
   if (val < currentNode.value) {
     if (!currentNode.left) {
@@ -26,7 +26,7 @@ treeMethods.insert = function(val, currentNode) {
   }
 };
 
-treeMethods.contains = function(target, currentNode) {
+binaryTreeMethods.contains = function(target, currentNode) {
   currentNode = currentNode || this;
   if (currentNode.value === target) {
     return true;
@@ -45,7 +45,7 @@ treeMethods.contains = function(target, currentNode) {
   }
 };
 
-treeMethods.depthFirstLog = function(cb, currentNode) {
+binaryTreeMethods.depthFirstLog = function(cb, currentNode) {
   currentNode = currentNode || this;
   cb(currentNode.value);
   if (currentNode.left) {
