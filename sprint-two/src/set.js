@@ -22,4 +22,12 @@ setPrototype.remove = function(item) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ add = O(1):
+ Add is constant because assigning key/value pairs is a constant operation.
+ 
+ contains = O(1):
+ Contains is constant because we are just looking up a key in our storage object.
+
+ remove = 0(1):
+ Remove is constant because deleting a key/value pair from an object is a constant time operation.
  */

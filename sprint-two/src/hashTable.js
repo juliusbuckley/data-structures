@@ -53,8 +53,9 @@ HashTable.prototype.remove = function(k) {
  retrieve = O(n) || O(1):
  retrieve is linear in the event of collisions the tuples need to be iterated.
  retrieve is constant time in the event of no collisions because we don't need to iterate tuples.
-
-
+ 
+ remove = O(1):
+ remove is in constant time because the set method is a constant time operation.
  */
 
 

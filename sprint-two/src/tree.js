@@ -32,4 +32,9 @@ treeMethods.contains = function(target, currentLocation) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addChild = O(1):
+ The addChild assumes you're already on the node you want to push to.
+
+ contains O(n):
+ Contains is linear because in the worst case we must iterate through all children.
  */

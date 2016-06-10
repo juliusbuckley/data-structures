@@ -46,6 +46,12 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+ addNode through removeEdge O(1):
+ These are all constant time because these object operations are in constant time.
+
+ forEachNode O(n):
+ forEachNode is linear because the cb is applied to each node.
  */
 
 

@@ -59,4 +59,16 @@ binaryTreeMethods.depthFirstLog = function(cb, currentNode) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ insert = O(log n) || O(n):
+ insert is log n because we are cutting the search in half on each iteration.
+ insert is linear in the event of an unbalanced tree.
+
+ contains = O(log n) || O(n):
+ contains is log n because we are cutting the search in half on each iteration.
+ contains is linear in the event of an unbalanced tree.
+ 
+ depthFirstLog = O(log n) || O(n):
+ depthFirstLog is log n because we are cutting the search in half on each iteration.
+ depthFirstLog is linear in the event of an unbalanced tree.
+
  */

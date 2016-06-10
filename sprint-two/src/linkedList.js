@@ -42,4 +42,12 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ addToTail = O(1):
+ addToTail is a constant time operation because we always know where tail is at.
+
+ removeHead = O(1):
+ removeHead is a constant time operation because we always know where the head is at.
+
+ contains = O(n):
+ contains is linear because in the worst case condition we must iterate through the entire list.
  */
