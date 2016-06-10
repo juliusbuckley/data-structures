@@ -24,7 +24,7 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit); 
   var bucket = this._storage.get(index);
-  if (!bucket) { 
+  if (!bucket || bucket.length === 0) { 
     return undefined;
   }
   return bucket.filter(function(tuple) {
@@ -34,18 +34,27 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  var valueToRemove = this._storage.get(index);
-  this._storage.each(function (item, i, list) {
-    if (valueToRemove === item) {
-      delete list[i];
-    }
-  });
+  // this._storage.each(function (item, i, list) {
+  //   if (valueToRemove === item) {
+  //     delete list[i];
+  //   }
+  // });
+  this._storage.set(index, []);
 };
 
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ insert = O(n) || O(1):
+ insert is linear in the event of collision, because we need to iterate through the tuples to know if the key matches a key already in there.
+ insert is constant in the event of no collision, because there is no need to iterate through tuples.
+
+ retrieve = O(n) || O(1):
+ retrieve is linear in the event of collisions the tuples need to be iterated.
+ retrieve is constant time in the event of no collisions because we don't need to iterate tuples.
+
+
  */
 
 
