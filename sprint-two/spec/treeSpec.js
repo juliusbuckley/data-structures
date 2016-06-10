@@ -25,7 +25,8 @@ describe('tree', function() {
     tree.addChild(5);
     tree.children[0].addChild(6);
     tree.children[0].children[0].addChild(8);
-    expect(tree.removeFromParent(6)).to.equal(8);
+    tree.removeFromParent(6);
+    expect(tree.contains(6)).to.equal(false);
   });
 
   it('should return true for a value that the tree contains', function() {

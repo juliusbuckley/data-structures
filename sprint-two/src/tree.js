@@ -24,9 +24,7 @@ treeMethods.removeFromParent = function(child, currentTree) {
   }, -1);
   if (childLocation !== -1 ) {
     var removedChild = currentTree.children.splice(childLocation, 1)[0]; 
-    removedChild.parent = null;
-    var rt = this.findRoot(currentTree.children[0]);
-    return [removedChild, rt];
+    removedChild.parent = null;    
   }
   for (var i = 0; i < currentTree.children.length; i++) {
     this.removeFromParent(child, currentTree.children[i]);
@@ -47,9 +45,6 @@ treeMethods.contains = function(target, currentLocation) {
   }
 };
 
-treeMethods.findRoot = function(child) {
-  return {};
-};
 
 
 
