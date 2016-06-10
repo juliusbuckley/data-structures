@@ -5,15 +5,29 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  if (this._storage.get(index) === undefined) {
-    this._storage.set(index, []);
-  } 
-  this._storage.get(index).push([k, v]);
-};
+  var bucket = this._storage.get(index) || [];
+  
+  !bucket.length && this._storage.set(index, bucket);
+
+  for (var i = 0; i < bucket.length; i++) {
+    var tuple = bucket[i];
+    if (tuple[0] === k) {
+      tuple[1] = v;
+      return;
+    }
+  }
+  
+  bucket.push([k, v]); 
+  
+}; 
 
 HashTable.prototype.retrieve = function(k) {
-  var index = getIndexBelowMaxForKey(k, this._limit);
-  return this._storage.get(index).filter(function(tuple){
+  var index = getIndexBelowMaxForKey(k, this._limit); 
+  var bucket = this._storage.get(index);
+  if (!bucket) { 
+    return undefined;
+  }
+  return bucket.filter(function(tuple) {
     return tuple[0] === k;
   })[0][1]; 
 };
