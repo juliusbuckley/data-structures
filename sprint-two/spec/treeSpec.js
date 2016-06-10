@@ -11,9 +11,21 @@ describe('tree', function() {
     expect(tree.hasOwnProperty('value')).to.equal(true);
   });
 
+  it('should have methods named "removeFromParent", and a property named "parent"', function() {
+    expect(tree.removeFromParent).to.be.a('function');
+    expect(tree.hasOwnProperty('parent')).to.equal(true);
+  });
+
   it('should add children to the tree', function() {
     tree.addChild(5);
     expect(tree.children[0].value).to.equal(5);
+  });
+
+  it('should remove child from parent', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(6);
+    tree.children[0].children[0].addChild(8);
+    expect(tree.removeFromParent(6)).to.equal(8);
   });
 
   it('should return true for a value that the tree contains', function() {

@@ -1,7 +1,7 @@
-var Tree = function(value) {
+var Tree = function(value, parent) {
   var newTree = {};
   newTree.value = value;
-
+  newTree.parent = parent || null;
   // your code here
   newTree.children = [];
   _.extend(newTree, treeMethods);
@@ -11,7 +11,26 @@ var Tree = function(value) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  this.children.push(Tree(value));
+  this.children.push(Tree(value, this));
+};
+
+treeMethods.removeFromParent = function(child, currentTree) {
+  currentTree = currentTree || this;
+  var childLocation = _.reduce(currentTree.children, function(index, node, i) {
+    if (child === node.value) {
+      return i;
+    }
+    return index;
+  }, -1);
+  if (childLocation !== -1 ) {
+    var removedChild = currentTree.children.splice(childLocation, 1)[0]; 
+    removedChild.parent = null;
+    var rt = this.findRoot(currentTree.children[0]);
+    return [removedChild, rt];
+  }
+  for (var i = 0; i < currentTree.children.length; i++) {
+    this.removeFromParent(child, currentTree.children[i]);
+  }
 };
 
 treeMethods.contains = function(target, currentLocation) {
@@ -26,6 +45,10 @@ treeMethods.contains = function(target, currentLocation) {
     }
     return false;
   }
+};
+
+treeMethods.findRoot = function(child) {
+  return {};
 };
 
 
