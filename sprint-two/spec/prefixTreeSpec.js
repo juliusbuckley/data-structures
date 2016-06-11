@@ -1,4 +1,4 @@
-describe('binarySearchTree', function() {
+describe('prefixTree', function() {
   var binarySearchTree;
 
   beforeEach(function() {
