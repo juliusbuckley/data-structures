@@ -2,6 +2,7 @@ var DoublyLinkedList = function() {
   this.storage = {};
   this.head = null;
   this.tail = null;
+
 };
 
 var DoubleNode = function(val) {
