@@ -52,9 +52,9 @@ DoublyLinkedList.prototype.addToHead = function (value) {
     this.head = this.tail = new DoubleNode(value);
   } else {
     var temp = this.head;
-    this.head.next = new DoubleNode(value);
+    this.head.prev = new DoubleNode(value);
     this.head = new DoubleNode(value);
-    this.head.prev = temp;
+    this.head.next = temp;
   }
 };
 

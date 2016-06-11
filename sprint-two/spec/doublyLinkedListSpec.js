@@ -29,12 +29,16 @@ describe('doublyLinkedList', function() {
     doublyLinkedList.addToTail(5);
     // console.log(doublyLinkedList);
     expect(doublyLinkedList.tail.value).to.equal(5);
+    expect(doublyLinkedList.tail.next).to.equal(null);
+
   });
 
   it('should designate a new head when new nodes are added', function() {
     doublyLinkedList.addToHead(4);
     expect(doublyLinkedList.head.value).to.equal(4);
     doublyLinkedList.addToHead(5);
+    expect(doublyLinkedList.head.value).to.equal(5);
+    expect(doublyLinkedList.head.prev).to.equal(null);
   });
 
   //removeHead
